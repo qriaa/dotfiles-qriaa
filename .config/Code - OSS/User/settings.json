@@ -1,0 +1,11 @@
+{
+    // Often required when swapping esc and caps
+    "keyboard.dispatch": "keyCode",
+    // Make sure to download the extension
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.editor.enablePreview": false,
+    "editor.minimap.enabled": false,
+    "editor.rulers": [
+        80
+    ]
+}
