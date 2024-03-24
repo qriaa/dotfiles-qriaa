@@ -86,3 +86,7 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # --- ALIASES ---
 alias v=nvim
+
+# --- BINDINGS ---
+# Unbind super-l from running 'ls'
+bindkey -r "^[l"
