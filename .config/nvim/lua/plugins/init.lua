@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    event = 'BufWritePre', -- Format on save
     config = function()
       require "configs.conform"
     end,
@@ -10,6 +10,27 @@ return {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+        "scss",
+        "javascript",
+        "typescript",
+        "svelte",
+      },
+      auto_install = true,
+      highlight = {
+        enable = true,
+      },
+    }
+  }
+}
   -- These are some examples, uncomment them if you want to see them work!
   -- {
   --   "neovim/nvim-lspconfig",
@@ -29,13 +50,4 @@ return {
   -- 	},
   -- },
   --
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
-}
+
