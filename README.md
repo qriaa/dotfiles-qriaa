@@ -20,7 +20,9 @@ First, you should install all dependencies. Only then you should run `stow`.
 This is because the installed software might overwrite the config once
 it is installed.
 
-``` stow . ```
+The `--no-folding` ensures that only the singular files are symlinked, not whole directories.
+
+``` stow --no-folding . ```
 
 ## Additional tips and remarks
 
