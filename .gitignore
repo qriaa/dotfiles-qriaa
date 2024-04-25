@@ -1,0 +1,4 @@
+
+# Do not save any changes to the .ssh/config file
+.ssh/
+.ssh/config
