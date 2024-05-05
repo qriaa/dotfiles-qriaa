@@ -1,6 +1,7 @@
 local options = {
   filters = {
     dotfiles = false,
+    git_ignored = false,
   },
   disable_netrw = true,
   hijack_netrw = true,
