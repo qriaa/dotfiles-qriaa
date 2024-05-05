@@ -9,6 +9,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="qriaa"
+# --- THEME-AFFECTING SETTINGS ---
+export VIRTUAL_ENV_DISABLE_PROMPT=true
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -67,7 +69,13 @@ ZSH_THEME="qriaa"
 plugins=(
     git
     timer
+    vi-mode
 )
+
+# --- PLUGIN SETTINGS ---
+# - vi-mode
+export VI_MODE_SET_CURSOR=true
+export VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 
 source $ZSH/oh-my-zsh.sh
 
