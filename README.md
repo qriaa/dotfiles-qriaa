@@ -11,8 +11,9 @@ The dotfiles themselves are managed with the use of GNU Stow.
 * kitty
 * zsh
 * oh-my-zsh
-* tmux
-* tmux plugin manager
+* lsd
+* nvim
+* luarocks - for lazy.nvim
 
 ## Usage
 
@@ -27,3 +28,10 @@ The `--no-folding` ensures that only the singular files are symlinked, not whole
 ## Additional tips and remarks
 
 Make sure to change the default shell (`chsh`).
+
+Modifier keys for keybinds
+| Modifier | Use |
+|---|---|
+| Super | window manager, DE-related |
+| ctrl | application-specific |
+| ctrl+shift | term multiplexing |
