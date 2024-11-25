@@ -12,6 +12,7 @@ The dotfiles themselves are managed with the use of GNU Stow.
 * zsh
 * oh-my-zsh
 * lsd
+* ripgrep
 * nvim
 * luarocks - for lazy.nvim
 
