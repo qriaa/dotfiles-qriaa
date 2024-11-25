@@ -93,7 +93,12 @@ export EDITOR='nvim'
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # --- ALIASES ---
-alias v=nvim
+alias v="nvim"
+alias s="kitten ssh"
+alias l="lsd -lh"
+alias lt="lsd -lh --tree"
+alias la="lsd -lah"
+alias lat="lsd -lah --tree"
 
 # --- BINDINGS ---
 # Unbind super-l from running 'ls'
