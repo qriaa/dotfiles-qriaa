@@ -10,7 +10,7 @@ The dotfiles themselves are managed with the use of GNU Stow.
 * stow
 * kitty
 * zsh
-* oh-my-zsh
+* starship
 * lsd
 * ripgrep
 * nvim
