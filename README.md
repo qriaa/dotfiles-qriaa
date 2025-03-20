@@ -22,9 +22,8 @@ First, you should install all dependencies. Only then you should run `stow`.
 This is because the installed software might overwrite the config once
 it is installed.
 
-The `--no-folding` ensures that only the singular files are symlinked, not whole directories.
+The `restow.sh` script is an utility to help restow the directory quickly.
 
-``` stow --no-folding . ```
 
 ## Additional tips and remarks
 
