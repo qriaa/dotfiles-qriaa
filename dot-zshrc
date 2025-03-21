@@ -8,6 +8,8 @@ alias lt="lsd -lh --tree"
 alias la="lsd -lah"
 alias lat="lsd -lah --tree"
 
+source ~/.config/zsh/git.zsh
+
 # --- BINDINGS ---
 # Unbind super-l from running 'ls'
 bindkey -r "^[l"
