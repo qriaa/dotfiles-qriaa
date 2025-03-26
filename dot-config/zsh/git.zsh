@@ -62,15 +62,6 @@ function work_in_progress() {
 
 alias grt='cd "$(git rev-parse --show-toplevel || echo .)"'
 
-function ggpnp() {
-  if [[ "$#" == 0 ]]; then
-    ggl && ggp
-  else
-    ggl "${*}" && ggp "${*}"
-  fi
-}
-compdef _git ggpnp=git-checkout
-
 alias ggpur='ggu'
 alias g='git'
 alias ga='git add'
@@ -137,22 +128,6 @@ alias gcpc='git cherry-pick --continue'
 alias gclean='git clean --interactive -d'
 alias gcl='git clone --recurse-submodules'
 alias gclf='git clone --recursive --shallow-submodules --filter=blob:none --also-filter-submodules'
-
-function gccd() {
-  setopt localoptions extendedglob
-
-  # get repo URI from args based on valid formats: https://git-scm.com/docs/git-clone#URLS
-  local repo="${${@[(r)(ssh://*|git://*|ftp(s)#://*|http(s)#://*|*@*)(.git/#)#]}:-$_}"
-
-  # clone repository and exit if it fails
-  command git clone --recurse-submodules "$@" || return
-
-  # if last arg passed was a directory, that's where the repo was cloned
-  # otherwise parse the repo URI and use the last part as the directory
-  [[ -d "$_" ]] && cd "$_" || cd "${${repo:t}%.git/#}"
-}
-compdef _git gccd=git-clone
-
 alias gcam='git commit --all --message'
 alias gcas='git commit --all --signoff'
 alias gcasm='git commit --all --signoff --message'
@@ -177,17 +152,7 @@ alias gdca='git diff --cached'
 alias gdcw='git diff --cached --word-diff'
 alias gds='git diff --staged'
 alias gdw='git diff --word-diff'
-
-function gdv() { git diff -w "$@" | view - }
-compdef _git gdv=git-diff
-
 alias gdup='git diff @{upstream}'
-
-function gdnolock() {
-  git diff "$@" ":(exclude)package-lock.json" ":(exclude)*.lock"
-}
-compdef _git gdnolock=git-diff
-
 alias gdt='git diff-tree --no-commit-id --name-only -r'
 alias gf='git fetch'
 # --jobs=<n> was added in git 2.8
@@ -209,15 +174,6 @@ alias glol='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgre
 alias glo='git log --oneline --decorate'
 alias glog='git log --oneline --decorate --graph'
 alias gloga='git log --oneline --decorate --graph --all'
-
-# Pretty log messages
-function _git_log_prettily(){
-  if ! [ -z $1 ]; then
-    git log --pretty=$1
-  fi
-}
-compdef _git _git_log_prettily=git-log
-
 alias glp='_git_log_prettily'
 alias glg='git log --stat'
 alias glgp='git log --stat --patch'
@@ -232,57 +188,24 @@ alias gmom='git merge origin/$(git_main_branch)'
 alias gmum='git merge upstream/$(git_main_branch)'
 alias gmtl='git mergetool --no-prompt'
 alias gmtlvim='git mergetool --no-prompt --tool=vimdiff'
-
 alias gl='git pull'
 alias gpr='git pull --rebase'
 alias gprv='git pull --rebase -v'
 alias gpra='git pull --rebase --autostash'
 alias gprav='git pull --rebase --autostash -v'
-
-function ggu() {
-  [[ "$#" != 1 ]] && local b="$(git_current_branch)"
-  git pull --rebase origin "${b:=$1}"
-}
-compdef _git ggu=git-checkout
-
 alias gprom='git pull --rebase origin $(git_main_branch)'
 alias gpromi='git pull --rebase=interactive origin $(git_main_branch)'
 alias gprum='git pull --rebase upstream $(git_main_branch)'
 alias gprumi='git pull --rebase=interactive upstream $(git_main_branch)'
 alias ggpull='git pull origin "$(git_current_branch)"'
-
-function ggl() {
-  if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
-    git pull origin "${*}"
-  else
-    [[ "$#" == 0 ]] && local b="$(git_current_branch)"
-    git pull origin "${b:=$1}"
-  fi
-}
-compdef _git ggl=git-checkout
-
 alias gluc='git pull upstream $(git_current_branch)'
 alias glum='git pull upstream $(git_main_branch)'
 alias gp='git push'
 alias gpd='git push --dry-run'
-
-function ggf() {
-  [[ "$#" != 1 ]] && local b="$(git_current_branch)"
-  git push --force origin "${b:=$1}"
-}
-compdef _git ggf=git-checkout
-
 alias gpf!='git push --force'
 is-at-least 2.30 "$git_version" \
   && alias gpf='git push --force-with-lease --force-if-includes' \
   || alias gpf='git push --force-with-lease'
-
-function ggfl() {
-  [[ "$#" != 1 ]] && local b="$(git_current_branch)"
-  git push --force-with-lease origin "${b:=$1}"
-}
-compdef _git ggfl=git-checkout
-
 alias gpsup='git push --set-upstream origin $(git_current_branch)'
 is-at-least 2.30 "$git_version" \
   && alias gpsupf='git push --set-upstream origin $(git_current_branch) --force-with-lease --force-if-includes' \
@@ -291,17 +214,6 @@ alias gpv='git push --verbose'
 alias gpoat='git push origin --all && git push origin --tags'
 alias gpod='git push origin --delete'
 alias ggpush='git push origin "$(git_current_branch)"'
-
-function ggp() {
-  if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
-    git push origin "${*}"
-  else
-    [[ "$#" == 0 ]] && local b="$(git_current_branch)"
-    git push origin "${b:=$1}"
-  fi
-}
-compdef _git ggp=git-checkout
-
 alias gpu='git push upstream'
 alias grb='git rebase'
 alias grba='git rebase --abort'
