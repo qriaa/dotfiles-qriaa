@@ -17,10 +17,13 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<cr>")
 
 -- Don't overwrite yank when paste-replacing
-vim.keymap.set("x", "<leader>p", "\"_dP", { desc = "no yank-overwrite paste" })
+vim.keymap.set("x", "<leader>p", "\"_dP", { desc = "No yank-overwrite paste" })
 
--- yank to system clipboard
+-- Yank to system clipboard
 vim.keymap.set("n", "<leader>y", "\"+y", { desc = "Yank to system clipboard" })
 vim.keymap.set("v", "<leader>y", "\"+y", { desc = "Yank to system clipboard" })
 vim.keymap.set("n", "<leader>Y", "\"+Y", { desc = "Yank to system clipboard" })
 
+-- Comments
+vim.keymap.set("n", "<leader>/", "gcc", { desc = "Toggle comment", remap = true })
+vim.keymap.set("v", "<leader>/", "gc", { desc = "Toggle comment", remap = true })
