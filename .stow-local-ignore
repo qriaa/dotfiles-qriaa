@@ -1,0 +1,24 @@
+RCS
+.+,v
+
+CVS
+\.\#.+
+\.cvsignore
+
+\.svn
+_darcs
+\.hg
+
+\.git
+\.gitignore
+\.gitmodules
+
+# emacs backup and autosave
+.+~
+\#.*\#
+
+^README.*
+^LICENSE.*
+^COPYING
+
+restow.sh
