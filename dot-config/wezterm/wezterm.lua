@@ -6,6 +6,7 @@ config.font = wezterm.font('Inconsolata Nerd Font')
 config.font_size = 11
 
 config.use_fancy_tab_bar = false
+config.default_cursor_style = 'SteadyBar'
 
 local wez_mod = 'CTRL|SHIFT'
 config.keys = {
