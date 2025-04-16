@@ -13,8 +13,8 @@ config.keys = {
     { mods = wez_mod, key = 'p', action = act.ActivateCommandPalette },
 
     { mods = wez_mod, key = 'h', action = act.ActivateTabRelative(-1) },
-    { mods = wez_mod, key = 'j', action = act.ActivatePaneDirection('Prev') },
-    { mods = wez_mod, key = 'k', action = act.ActivatePaneDirection('Next') },
+    { mods = wez_mod, key = 'j', action = act.ActivatePaneDirection('Next') },
+    { mods = wez_mod, key = 'k', action = act.ActivatePaneDirection('Prev') },
     { mods = wez_mod, key = 'l', action = act.ActivateTabRelative(1) },
 
     { mods = wez_mod, key = 'n', action = act.SplitPane({
