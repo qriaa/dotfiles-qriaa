@@ -22,6 +22,8 @@ First, you should install all dependencies. Only then you should run `stow`.
 This is because the installed software might overwrite the config once
 it is installed.
 
+Don't forget to restow when adding files.
+
 The `restow.sh` script is an utility to help restow the directory quickly.
 
 
