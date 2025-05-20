@@ -9,7 +9,7 @@ The dotfiles themselves are managed with the use of GNU Stow.
 
 * stow
 * kitty
-* zsh
+* fish
 * starship
 * lsd
 * ripgrep
