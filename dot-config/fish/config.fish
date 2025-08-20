@@ -5,18 +5,23 @@ set -g fish_greeting
 # --- SOURCES ---
 source ~/.config/fish/git.fish
 
-# --- ALIASES ---
+# --- ABBREVIATONS ---
 # nvim
-alias v="nvim"
+abbr -a v "nvim"
 # terminal emulator
-alias s="kitten ssh"
+abbr -a s "kitten ssh"
 # lsd
-alias l="lsd -lh"
-alias lt="lsd -lh --tree"
-alias la="lsd -lah"
-alias lat="lsd -lah --tree"
+abbr -a l "lsd -lh"
+abbr -a lt "lsd -lh --tree"
+abbr -a la "lsd -lah"
+abbr -a lat "lsd -lah --tree"
 # terraform
-alias tf="terraform"
+abbr -a tf "terraform"
+# !!
+function last_history_item
+    echo $history[1]
+end
+abbr -a !! --position anywhere --function last_history_item
 
 # --- STARSHIP ---
 starship init fish | source
