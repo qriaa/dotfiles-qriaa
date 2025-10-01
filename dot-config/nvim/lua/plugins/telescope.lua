@@ -1,18 +1,23 @@
+local maps = {
+    ff = { lhs = "<leader>ff", mode = "n", desc = "Telescope find files" },
+    fg = { lhs = "<leader>fg", mode = "n", desc = "Telescope live grep" },
+    pf = { lhs = "<leader>pf", mode = "n", desc = "Telescope git files" }
+}
 return {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.8',
     dependencies = { 'nvim-lua/plenary.nvim' },
     keys = {
-        { "<leader>ff", desc = "Telescope find files" },
-        { "<leader>fg", desc = "Telescope live grep" },
-        { "<leader>pf", desc = "Telescope git files" },
+        { maps.ff.lhs, desc = maps.ff.desc },
+        { maps.fg.lhs, desc = maps.fg.desc },
+        { maps.pf.lhs, desc = maps.pf.desc },
     },
-    config = function()
-        require("telescope").setup({})
+    config = function(plugin, opts)
+        require("telescope").setup(opts)
         local builtin = require("telescope.builtin")
 
-        vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-        vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
-        vim.keymap.set("n", "<leader>pf", builtin.git_files, { desc = "Telescope git files" })
+        vim.keymap.set(maps.ff.mode, maps.ff.lhs, builtin.find_files, { desc = maps.ff.desc })
+        vim.keymap.set(maps.fg.mode, maps.fg.lhs, builtin.live_grep, { desc = maps.fg.desc })
+        vim.keymap.set(maps.pf.mode, maps.pf.lhs, builtin.git_files, { desc = maps.pf.desc })
     end,
 }
