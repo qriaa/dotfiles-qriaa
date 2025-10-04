@@ -1,7 +1,7 @@
 return {
     "nvim-tree/nvim-tree.lua",
     keys = {
-        { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "File browser open"},
+        { "<leader>e", "<cmd>NvimTreeFocus<cr>", desc = "File browser open"},
     },
     opts = {
         view = {
