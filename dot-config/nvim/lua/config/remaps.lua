@@ -1,4 +1,3 @@
-
 -- Window movement
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move cursor to left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move cursor to lower window" })
@@ -21,9 +20,12 @@ vim.keymap.set("x", "<leader>p", "\"_dP", { desc = "No yank-overwrite paste" })
 
 -- Yank to system clipboard
 vim.keymap.set("n", "<leader>y", "\"+y", { desc = "Yank to system clipboard" })
-vim.keymap.set("v", "<leader>y", "\"+y", { desc = "Yank to system clipboard" })
 vim.keymap.set("n", "<leader>Y", "\"+Y", { desc = "Yank to system clipboard" })
+vim.keymap.set("v", "<leader>y", "\"+y", { desc = "Yank to system clipboard" })
 
 -- Comments
 vim.keymap.set("n", "<leader>/", "gcc", { desc = "Toggle comment", remap = true })
 vim.keymap.set("v", "<leader>/", "gc", { desc = "Toggle comment", remap = true })
+
+-- Delete buffer
+vim.keymap.set("n", "<leader>bd", ":bd<CR>", { desc = "Delete buffer" })
