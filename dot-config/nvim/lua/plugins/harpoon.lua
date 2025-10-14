@@ -10,6 +10,7 @@ local maps = {
 return {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
+    enabled = false,
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = utils.maps_to_keys(maps),
     config = function(plugin, opts)
