@@ -22,5 +22,5 @@ return {
     config = function(plugin, opts)
         require("kanagawa").setup(opts)
         vim.cmd("colorscheme kanagawa-dragon")
-    end
+    end,
 }
