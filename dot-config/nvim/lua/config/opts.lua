@@ -1,6 +1,6 @@
 vim.opt.termguicolors = true
 
--- Relative line numbers
+-- Status column
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
