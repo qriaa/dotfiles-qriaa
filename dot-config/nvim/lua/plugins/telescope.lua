@@ -15,6 +15,18 @@ return {
         local builtin = require("telescope.builtin")
         local actions = require("telescope.actions")
         local opts = {
+            defaults = {
+                mappings = {
+                    n = {
+                        ["<C-q>"] = actions.send_to_qflist,
+                        ["<M-q>"] = actions.send_selected_to_qflist,
+                    },
+                    i = {
+                        ["<C-q>"] = actions.send_to_qflist,
+                        ["<M-q>"] = actions.send_selected_to_qflist,
+                    },
+                },
+            },
             pickers = {
                 buffers = {
                     mappings = {
