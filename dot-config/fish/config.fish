@@ -24,4 +24,7 @@ end
 abbr -a !! --position anywhere --function last_history_item
 
 # --- STARSHIP ---
-starship init fish | source
+# starship init fish | source
+
+# --- oh-my-posh ---
+oh-my-posh init fish | source
