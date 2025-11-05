@@ -2,6 +2,12 @@ local opt = vim.opt
 
 opt.termguicolors = true
 
+-- Statusline
+opt.showmode = false
+opt.ruler = false
+-- opt.laststatus = 3 -- controlled by lualine
+opt.cmdheight = 0
+
 -- Status column
 opt.nu = true
 opt.relativenumber = true
