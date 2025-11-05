@@ -12,11 +12,10 @@ opt.cmdheight = 0
 opt.nu = true
 opt.relativenumber = true
 
--- 4-space indenting
-opt.tabstop = 4
-opt.softtabstop = 4
-opt.shiftwidth = 4
+-- Indenting
 opt.expandtab = true
+opt.shiftwidth = 4
+opt.softtabstop = -1
 
 opt.smartindent = true
 
