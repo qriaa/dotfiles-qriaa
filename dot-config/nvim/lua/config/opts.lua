@@ -1,21 +1,23 @@
-vim.opt.termguicolors = true
+local opt = vim.opt
+
+opt.termguicolors = true
 
 -- Status column
-vim.opt.nu = true
-vim.opt.relativenumber = true
+opt.nu = true
+opt.relativenumber = true
 
 -- 4-space indenting
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
 
-vim.opt.smartindent = true
+opt.smartindent = true
 
-vim.opt.wrap = false
+opt.wrap = false
 
 -- Don't let the cursor touch the window edge by 8 lines - scroll instead
-vim.opt.scrolloff = 8
+opt.scrolloff = 8
 
-vim.opt.colorcolumn = "100"
-vim.opt.cursorline = true
+opt.colorcolumn = "100"
+opt.cursorline = true
