@@ -10,6 +10,20 @@ blocks:
   - type: prompt
     alignment: left
     segments:
+      - type: root
+        style: powerline
+        powerline_symbol: ""
+        foreground: "#000000"
+        background: "#ffff66"
+        template: " "
+      - type: status
+        style: powerline
+        powerline_symbol: ""
+        foreground: "#ffffff"
+        background: "#00897b"
+        background_templates:
+          - "{{ if ne .Code 0 }}#e63d00{{ end }}"
+        template: " "
       - type: path
         style: powerline
         powerline_symbol: ""
@@ -40,6 +54,8 @@ blocks:
             feat/*: "🚀 "
             bug/*: "🐛 "
           github_icon: " "
+          gitlab_icon: " "
+          git_icon: " "
   - type: prompt
     alignment: right
     overflow: hide
@@ -55,13 +71,22 @@ blocks:
         powerline_symbol: ""
         foreground: "#FFFFFF"
         background: "#34A853"
-        template: "󱇶  {{.Project}} :: {{.Account}} "
+        template: "󱇶  {{.Project}} "
       - type: aws
         style: powerline
         powerline_symbol: ""
         foreground: "#000000"
         background: "#FF9900"
-        template: "  {{.Profile}}{{if .Region}} :: {{.Region}}{{end}}"
+        template: "  {{.Profile}}{{if .Region}} :: {{.Region}}{{end}} "
+      - type: executiontime
+        style: powerline
+        powerline_symbol: ""
+        foreground: "#000000"
+        background: "#00AAFF"
+        template: "{{ .FormattedMs }} 󱦟 "
+        properties:
+          threshold: 500
+          style: austin
   - type: prompt
     alignment: left
     newline: true
