@@ -1,6 +1,7 @@
 import Quickshell
 import Quickshell.Io
 import QtQuick
+import QtQuick.Layouts
 
 Scope {
   Variants {
@@ -18,11 +19,56 @@ Scope {
 
       implicitHeight: 30
 
-      ClockWidget {
-          anchors.centerIn: parent
+      RowLayout {
+          id: leftSection
+          anchors {
+              top: parent.top
+              bottom: parent.bottom
+              left: parent.left
+              right: centerSection.left
+          }
+          spacing: 0
+
+          Text {
+              text: 'hemlo'
+          }
+
+          Rectangle {
+              color: 'orange'
+              Layout.fillHeight: true
+              Layout.fillWidth: true
+          }
       }
-      Workspaces {
-          anchors.centerIn: parent
+
+      RowLayout {
+          id: centerSection
+          anchors {
+              top: parent.top
+              bottom: parent.bottom
+              horizontalCenter: parent.horizontalCenter
+          }
+          spacing: 0
+
+          Workspaces {}
+      }
+
+      RowLayout {
+          id: rightSection
+          anchors {
+              top: parent.top
+              bottom: parent.bottom
+              left: centerSection.right
+              right: parent.right
+          }
+          spacing: 0
+
+
+          Rectangle {
+              color: 'green'
+              Layout.fillHeight: true
+              Layout.fillWidth: true
+          }
+          ClockWidget {}
       }
     }
   }
