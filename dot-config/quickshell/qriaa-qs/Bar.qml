@@ -21,6 +21,9 @@ Scope {
       ClockWidget {
           anchors.centerIn: parent
       }
+      Workspaces {
+          anchors.centerIn: parent
+      }
     }
   }
 }
