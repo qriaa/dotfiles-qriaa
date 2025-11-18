@@ -2,6 +2,7 @@ import Quickshell
 import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
+import qs.config
 
 Scope {
   Variants {
@@ -19,6 +20,12 @@ Scope {
 
       implicitHeight: 30
 
+      // Background
+      Rectangle {
+          anchors.fill: parent
+          color: Style.color.sys.surfaceLow
+      }
+
       RowLayout {
           id: leftSection
           anchors {
@@ -31,12 +38,6 @@ Scope {
 
           Text {
               text: 'hemlo'
-          }
-
-          Rectangle {
-              color: 'orange'
-              Layout.fillHeight: true
-              Layout.fillWidth: true
           }
       }
 
@@ -60,14 +61,10 @@ Scope {
               left: centerSection.right
               right: parent.right
           }
+          layoutDirection: Qt.RightToLeft
           spacing: 0
 
 
-          Rectangle {
-              color: 'green'
-              Layout.fillHeight: true
-              Layout.fillWidth: true
-          }
           ClockWidget {}
       }
     }

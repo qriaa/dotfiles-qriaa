@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Wayland
 import Quickshell.Hyprland
+import qs.config
 
 Item {
     id: root
@@ -17,29 +18,30 @@ Item {
     implicitWidth: root.workspaceButtonWidth * workspacesShown
     implicitHeight: 30
 
-    RowLayout {
-        spacing:0
-        anchors {
-            horizontalCenter: parent.horizontalCenter
-            verticalCenter: parent.verticalCenter
-        }
-        implicitHeight: 28
-        implicitWidth: 28
+    // Background
+    Rectangle {
+        anchors.fill: parent
+        radius: 5
+        color: Style.color.sys.surface
 
-        Rectangle {
-            color: 'red'
-            radius: width/2
-            implicitHeight: root.workspaceButtonWidth
-            implicitWidth: root.workspaceButtonWidth
-            Layout.alignment: Qt.AlignVCenter
-            Text {
-                anchors {
-                    horizontalCenter: parent.horizontalCenter
-                    verticalCenter: parent.verticalCenter
+        RowLayout {
+            anchors.centerIn: parent
+            spacing: 0
+
+            Rectangle {
+                Layout.alignment: Qt.AlignVCenter
+                implicitHeight: root.workspaceButtonWidth
+                implicitWidth: root.workspaceButtonWidth
+                color: Style.color.sys.surfaceHighest
+                radius: width/2
+                Text {
+                    anchors.centerIn: parent
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    text: root.monitor.activeWorkspace.id
+                    color: Style.color.sys.onsurface
                 }
-                text: root.monitor.activeWorkspace.id
             }
         }
     }
-
 }
