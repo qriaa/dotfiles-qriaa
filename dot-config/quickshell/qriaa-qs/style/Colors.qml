@@ -5,6 +5,7 @@ pragma Singleton
 
 // Themed with the assist of some of the material design philosophy
 // Material Design: m3.material.io
+// Also useful: https://material-foundation.github.io/material-theme-builder/
 // Color contribution philosophy:
 // 60% - main color
 // 30% - secondary color
