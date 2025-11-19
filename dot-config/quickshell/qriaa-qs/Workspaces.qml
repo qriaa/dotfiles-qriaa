@@ -3,7 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Wayland
 import Quickshell.Hyprland
-import qs.config
+import qs.style
 
 Item {
     id: root
@@ -22,7 +22,7 @@ Item {
     Rectangle {
         anchors.fill: parent
         radius: 5
-        color: Style.color.sys.surface
+        color: Colors.sys.surface
 
         RowLayout {
             anchors.centerIn: parent
@@ -32,14 +32,14 @@ Item {
                 Layout.alignment: Qt.AlignVCenter
                 implicitHeight: root.workspaceButtonWidth
                 implicitWidth: root.workspaceButtonWidth
-                color: Style.color.sys.surfaceHighest
+                color: Colors.sys.surfaceHighest
                 radius: width/2
                 Text {
                     anchors.centerIn: parent
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     text: root.monitor.activeWorkspace.id
-                    color: Style.color.sys.onsurface
+                    color: Colors.sys.onsurface
                 }
             }
         }

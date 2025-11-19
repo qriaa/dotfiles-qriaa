@@ -2,7 +2,7 @@ import Quickshell
 import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
-import qs.config
+import qs.style
 
 Scope {
   Variants {
@@ -23,7 +23,7 @@ Scope {
       // Background
       Rectangle {
           anchors.fill: parent
-          color: Style.color.sys.surfaceLow
+          color: Colors.sys.surfaceLow
       }
 
       RowLayout {
