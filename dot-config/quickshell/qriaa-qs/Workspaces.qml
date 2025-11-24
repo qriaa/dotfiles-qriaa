@@ -9,11 +9,11 @@ import qs.widgets
 
 Item {
     id: root
-    // Actual buttons are invisible.
+    // Actual button hitbox is invisible.
     // The active workspace indicator is smaller than the button.
     property int workspaceButtonWidth: 26
-    property int workspaceButtonSpacing: 2
-    property int activeWorkspaceMargin: 2
+    property int visualButtonMargin: 2
+    property int visualButtonWidth: workspaceButtonWidth - visualButtonMargin
     property real workspaceIconWidth: workspaceButtonWidth * 0.7
 
     property int workspaceOccupied: 0
@@ -22,7 +22,6 @@ Item {
     readonly property int workspacesShown: 10
 
     implicitWidth: (workspaceButtonWidth * workspacesShown)
-                    + (workspaceButtonSpacing * (workspacesShown - 1))
     implicitHeight: 30
 
     // Background
@@ -32,34 +31,57 @@ Item {
         color: Colors.sys.surface
     }
 
+
+    // Active button
+    Rectangle {
+        implicitHeight: root.visualButtonWidth
+        implicitWidth: root.visualButtonWidth
+        anchors.verticalCenter: parent.verticalCenter
+        x: root.workspaceButtonWidth * (root.monitor.activeWorkspace.id - 1)
+            + root.visualButtonMargin/2
+
+        radius: width/2
+        color: Colors.sys.surfaceHighest
+    }
+
     // Buttons
     RowLayout {
         anchors.fill: parent
-        anchors.leftMargin: 2
-        spacing: root.workspaceButtonSpacing
+        spacing: 0
 
         Repeater {
             model: root.workspacesShown
 
             Item {
-                id: button
+                id: rootButton
                 property int workspace: index + 1
-
-                Layout.alignment: Qt.AlignVCenter
                 implicitHeight: root.workspaceButtonWidth
                 implicitWidth: root.workspaceButtonWidth
-                // color: "#00000000"//Colors.sys.surfaceHighest
-                // radius: width/2
+
                 Button {
+                    id: hitbox
+
                     anchors.fill: parent
                     opacity: 0
+
+                    hoverEnabled: true
                     onPressed: Hyprland.dispatch(`focusworkspaceoncurrentmonitor ${workspace}`)
                 }
+
+                Rectangle {
+                    id: visualButton
+
+                    Layout.alignment: Qt.AlignVCenter
+                    anchors.fill: parent
+                    color: hitbox.hovered ? Colors.sys.surfaceHigh : "#00000000"//Colors.sys.surfaceHighest
+                    radius: width/2
+                }
+
                 StyledText {
                     anchors.centerIn: parent
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
-                    text: button.workspace//root.monitor.activeWorkspace.id
+                    text: rootButton.workspace//root.monitor.activeWorkspace.id
                 }
             }
         }
