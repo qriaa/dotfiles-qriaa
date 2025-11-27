@@ -36,8 +36,8 @@ Scope {
           }
           spacing: 0
 
-          Text {
-              text: 'hemlo'
+          WindowName {
+              Layout.fillHeight: true
           }
       }
 
@@ -65,7 +65,9 @@ Scope {
           spacing: 0
 
 
-          ClockWidget {}
+          ClockWidget {
+              Layout.fillHeight: true
+          }
       }
     }
   }

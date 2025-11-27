@@ -1,7 +1,8 @@
 import Quickshell
+import Quickshell.Hyprland
 import QtQuick
-import qs.widgets
 import qs.style
+import qs.widgets
 
 Rectangle {
     id: root
@@ -19,6 +20,6 @@ Rectangle {
             horizontalCenter: parent.horizontalCenter
         }
         
-        text: Time.time
+        text: Hyprland.activeToplevel.title
     }
 }
