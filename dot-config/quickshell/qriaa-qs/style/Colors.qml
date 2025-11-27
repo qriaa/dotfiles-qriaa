@@ -48,6 +48,7 @@ Singleton {
         property color surfaceHigh: root.ref.neutral20
         property color surfaceHighest: root.ref.neutral25
         property color onsurface: root.ref.white
+        property color subtleonsurface: root.ref.neutral70
 
         property color outline: root.ref.neutral40
     }
