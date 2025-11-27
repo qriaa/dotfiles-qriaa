@@ -71,7 +71,8 @@ Item {
                     id: visualButton
 
                     anchors.fill: parent
-                    color: hitbox.hovered ? Colors.sys.surfaceHigh : "#00000000"//Colors.sys.surfaceHighest
+                    color: Colors.sys.surfaceHigh //Colors.sys.surfaceHighest
+                    opacity: hitbox.hovered
                     radius: width/2
                 }
 
