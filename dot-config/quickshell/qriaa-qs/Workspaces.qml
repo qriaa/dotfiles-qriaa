@@ -16,10 +16,10 @@ Item {
     property int visualButtonWidth: workspaceButtonWidth - visualButtonMargin
     property real workspaceIconWidth: workspaceButtonWidth * 0.7
 
-    property int workspaceOccupied: 0
+    readonly property int workspacesShown: 10
 
     readonly property HyprlandMonitor monitor: Hyprland.monitorFor(root.QsWindow.window?.screen)
-    readonly property int workspacesShown: 10
+    property int workspaceOccupied: 0
 
     implicitWidth: (workspaceButtonWidth * workspacesShown)
     implicitHeight: 30
@@ -30,7 +30,6 @@ Item {
         radius: 5
         color: Colors.sys.surface
     }
-
 
     // Active button
     Rectangle {
@@ -71,7 +70,6 @@ Item {
                 Rectangle {
                     id: visualButton
 
-                    Layout.alignment: Qt.AlignVCenter
                     anchors.fill: parent
                     color: hitbox.hovered ? Colors.sys.surfaceHigh : "#00000000"//Colors.sys.surfaceHighest
                     radius: width/2
@@ -81,7 +79,7 @@ Item {
                     anchors.centerIn: parent
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
-                    text: rootButton.workspace//root.monitor.activeWorkspace.id
+                    text: rootButton.workspace
                 }
             }
         }
