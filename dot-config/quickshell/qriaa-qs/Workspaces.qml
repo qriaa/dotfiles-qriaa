@@ -36,7 +36,7 @@ Item {
         implicitHeight: root.visualButtonWidth
         implicitWidth: root.visualButtonWidth
         anchors.verticalCenter: parent.verticalCenter
-        x: root.workspaceButtonWidth * (root.monitor.activeWorkspace.id - 1)
+        x: root.workspaceButtonWidth * (root.monitor?.activeWorkspace.id - 1)
             + root.visualButtonMargin/2
 
         radius: width/2

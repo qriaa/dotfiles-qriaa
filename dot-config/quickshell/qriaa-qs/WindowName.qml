@@ -11,6 +11,7 @@ Rectangle {
     readonly property int margin: 5
     readonly property HyprlandMonitor monitor: Hyprland.monitorFor(root.QsWindow.window?.screen)
     readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
+    readonly property bool focusingThisMonitor: Hyprland.focusedWorkspace?.monitor?.name == monitor?.name
 
     readonly property string titleText: activeWindow.title
     readonly property string subtitleText: activeWindow.appId
