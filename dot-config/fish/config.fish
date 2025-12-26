@@ -1,6 +1,7 @@
 set -gx EDITOR 'nvim'
 set -gx PAGER 'less'
 set -g fish_greeting
+fish_vi_key_bindings
 
 # --- XDG VARS ---
 test -n "$XDG_CONFIG_HOME"; or set -gx XDG_CONFIG_HOME "$HOME/.config/"
